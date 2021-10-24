@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <MSBuildProjectExtensionsPath>$(SolutionDir)Build\Debug\obj</MSBuildProjectExtensionsPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <MSBuildProjectExtensionsPath>$(SolutionDir)Build\Release\obj</MSBuildProjectExtensionsPath>
+  </PropertyGroup>
+</Project>

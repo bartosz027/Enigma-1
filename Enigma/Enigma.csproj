@@ -1,9 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Encryption</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>$(SolutionDir)Build\Debug\bin</OutputPath>
+    <IntermediateOutputPath>$(SolutionDir)Build\Debug\obj</IntermediateOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>$(SolutionDir)Build\Release\bin</OutputPath>
+    <IntermediateOutputPath>$(SolutionDir)Build\Release\obj</IntermediateOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
