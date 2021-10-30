@@ -25,7 +25,7 @@ namespace Encryption.Controller {
             _Enigma.EncryptMessage(encryptionInputTextBox.Text);
 
             var encryptionOutputTextBox = _View.GetControl("EncryptionOutputTextBox") as TextBox;
-            encryptionOutputTextBox.Text = _Enigma.Decrypted; // TODO: FIX ENCRYPTION
+            encryptionOutputTextBox.Text = _Enigma.Decrypted;
         }
 
         // Model variable

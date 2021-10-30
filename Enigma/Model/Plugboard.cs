@@ -58,6 +58,12 @@ namespace Encryption.Model {
         }
 
 
+        public void Reset() {
+            _Input = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            _Output = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        }
+
+
         public string GetConnectedPlugs() {
             string plugs = null;
 

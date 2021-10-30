@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,72 @@ namespace Encryption.Model {
             CurrentReflector = AvailableReflectors[0];
 
             Decrypted = "";
+        }
+
+
+        public void SaveSettings(string filepath) {
+            string settings = "";
+
+            // Get plugboard settings
+            string connections = Plugboard.GetConnectedPlugs();
+
+            // Save plugboard settings
+            settings += (connections != null) ? connections.Replace(" ", "") : "NULL";
+            settings += ' ';
+
+            // Save reflector settings
+            settings += CurrentReflector.GetName();
+            settings += ' ';
+
+            foreach(var rotor in CurrentRotors) {
+                settings += rotor.GetName();
+                settings += ' ';
+
+                settings += rotor.GetRingPosition();
+                settings += ' ';
+            }
+
+            // Write to file
+            Directory.CreateDirectory(Path.GetDirectoryName(filepath));
+            File.WriteAllText(filepath, settings);
+        }
+
+        public void LoadSettings(string filepath) {
+            foreach(var rotor in CurrentRotors) {
+                rotor.ResetKey();
+            }
+
+            // Current settings
+            string[] settings = File.ReadAllText(filepath).Split(" ");
+            char[] keys = { CurrentRotors[0].GetKeyPosition(), CurrentRotors[1].GetKeyPosition(), CurrentRotors[2].GetKeyPosition() };
+
+            // Reset plugboard settings
+            Plugboard.Reset();
+
+            // Load plugboard settings
+            for(int i = 0; settings[0] != "NULL" && i < settings[0].Length; i += 2) {
+                AddPlugboardConnection(settings[0].Substring(i, 2));
+            }
+
+            // Load reflector settings
+            SetReflector(settings[1]);
+
+            // Remove all rotors
+            CurrentRotors.Clear();
+
+            // Load rotors
+            for(int i = 2; settings[i] != "" && i < settings.Length; i += 2) {
+                var rotor = AvailableRotors.Find(p => (p.GetName() == settings[i]));
+
+                var rotorClone = rotor.Clone() as Rotor;
+                rotorClone.SetRingPosition(int.Parse(settings[i + 1]));
+
+                CurrentRotors.Add(rotorClone);
+            }
+
+            for(int i = 0; i < CurrentRotors.Count; i++) {
+                CurrentRotors[i].SetKeyPosition(keys[i]);
+            }
         }
 
 
@@ -67,6 +134,10 @@ namespace Encryption.Model {
         public void EncryptMessage(string message) {
             Decrypted = "";
 
+            foreach(var rotor in CurrentRotors) {
+                rotor.ResetKey();
+            }
+
             foreach(var letter in message) {
                 int size = CurrentRotors.Count;
 
@@ -105,14 +176,14 @@ namespace Encryption.Model {
 
 
         // Plugboard
-        public Plugboard Plugboard { get; }
+        public Plugboard Plugboard { get; set; }
 
         // Available components
-        public List<Rotor> AvailableRotors { get; }
-        public List<Reflector> AvailableReflectors { get; }
+        public List<Rotor> AvailableRotors { get; set; }
+        public List<Reflector> AvailableReflectors { get; set; }
 
         // Current components
-        public List<Rotor> CurrentRotors { get; }
+        public List<Rotor> CurrentRotors { get; set; }
         public Reflector CurrentReflector { get; set; }
 
         // Message

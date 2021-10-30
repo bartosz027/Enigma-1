@@ -17,6 +17,8 @@ namespace Encryption.Model {
             _RingPosition = 0;
 
             _TurnoverPosition = turnover;
+
+            _ResetKeyPositionValue = 'A';
         }
 
 
@@ -29,54 +31,28 @@ namespace Encryption.Model {
             }
         }
 
+        public void ResetKey() {
+            _KeyPosition = _ResetKeyPositionValue - 'A';
+        }
+
 
         public char ProcessSignal(char letter) {
-            letter = (char)((int)letter + (_KeyPosition - _RingPosition));
-
-            if (letter < 'A') {
-                letter = (char)((int)letter + 26);
-            }
-            else if (letter > 'Z') {
-                letter = (char)((int)letter - 26);
-            }
+            letter = AddOffset(letter);
 
             int index = _Input.IndexOf(letter);
             letter = _Output[index];
 
-            letter = (char)((int)letter + (_RingPosition - _KeyPosition));
-
-            if (letter < 'A') {
-                letter = (char)((int)letter + 26);
-            }
-            else if (letter > 'Z') {
-                letter = (char)((int)letter - 26);
-            }
-
+            letter = RemoveOffset(letter);
             return letter;
         }
 
         public char ProcessReversedSignal(char letter) {
-            letter = (char)((int)letter + (_KeyPosition - _RingPosition));
-
-            if (letter < 'A') {
-                letter = (char)((int)letter + 26);
-            }
-            else if (letter > 'Z') {
-                letter = (char)((int)letter - 26);
-            }
+            letter = AddOffset(letter);
 
             int index = _Output.IndexOf(letter);
             letter = _Input[index];
 
-            letter = (char)((int)letter + (_RingPosition - _KeyPosition));
-
-            if (letter < 'A') {
-                letter = (char)((int)letter + 26);
-            }
-            else if (letter > 'Z') {
-                letter = (char)((int)letter - 26);
-            }
-
+            letter = RemoveOffset(letter);
             return letter;
         }
 
@@ -95,6 +71,7 @@ namespace Encryption.Model {
         }
 
         public void SetKeyPosition(char position) {
+            _ResetKeyPositionValue = position;
             _KeyPosition = position - 'A';
         }
 
@@ -113,6 +90,33 @@ namespace Encryption.Model {
         }
 
 
+        private char AddOffset(char letter) {
+            letter = (char)((int)letter + (_KeyPosition - _RingPosition));
+
+            if (letter < 'A') {
+                letter = (char)((int)letter + 26);
+            }
+            else if (letter > 'Z') {
+                letter = (char)((int)letter - 26);
+            }
+
+            return letter;
+        }
+
+        private char RemoveOffset(char letter) {
+            letter = (char)((int)letter + (_RingPosition - _KeyPosition));
+
+            if (letter < 'A') {
+                letter = (char)((int)letter + 26);
+            }
+            else if (letter > 'Z') {
+                letter = (char)((int)letter - 26);
+            }
+
+            return letter;
+        }
+
+
         // Identifier (unique string)
         private string _Name;
 
@@ -126,6 +130,9 @@ namespace Encryption.Model {
 
         // Encryption data (allows to set when adjacent rotor moves too)
         private char _TurnoverPosition;
+
+        // Default value of key position (_KeyPosition changes after every encryption => you need to reset it's value to encrypt another message properly)
+        private char _ResetKeyPositionValue;
     }
 
 }

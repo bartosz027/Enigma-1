@@ -9,14 +9,7 @@ namespace Encryption {
     class Application {
         static void Main(string[] args) {
             var window = new Window();
-
-            try {
-                window.Run();
-            }
-            catch (Exception e) {
-                Console.Clear();
-                Console.WriteLine(e.StackTrace);
-            }
+            window.Run();
         }
     }
 
