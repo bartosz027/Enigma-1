@@ -18,6 +18,7 @@ namespace Encryption.Model {
                 new Rotor("IV",  "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "ESOVPZJAYQUIRHXLNFTGKDCMWB", 'K'),
                 new Rotor("V",   "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "VZBRGITYUPSDNHLXAWMJQOFECK", 'A'),
             };
+
             AvailableReflectors = new List<Reflector>() {
                 new Reflector("A", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "EJMZALYXVBWFCRQUONTSPIKHGD"),
                 new Reflector("B", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "YRUHQSLDPXNGOKMIEBFZCWVJAT"),
@@ -59,11 +60,12 @@ namespace Encryption.Model {
         }
 
         public void LoadSettings(string filepath) {
+            // Reset rotor keys
             foreach(var rotor in CurrentRotors) {
                 rotor.ResetKey();
             }
 
-            // Current settings
+            // Get current settings
             string[] settings = File.ReadAllText(filepath).Split(" ");
             char[] keys = { CurrentRotors[0].GetKeyPosition(), CurrentRotors[1].GetKeyPosition(), CurrentRotors[2].GetKeyPosition() };
 
@@ -134,14 +136,17 @@ namespace Encryption.Model {
         public void EncryptMessage(string message) {
             Decrypted = "";
 
+            // Reset rotor keys
             foreach(var rotor in CurrentRotors) {
                 rotor.ResetKey();
             }
 
+            // Decrypt message
             foreach(var letter in message) {
                 int size = CurrentRotors.Count;
 
                 if (letter != ' ') {
+                    // Move rotors (change rotors keys)
                     CurrentRotors[size - 1].Move();
 
                     for(int i = size - 1; i > 0; i--) {
@@ -153,19 +158,26 @@ namespace Encryption.Model {
                         break;
                     }
 
+                    // Send signal to plugboard
                     char decrypted_letter = Plugboard.ProcessSignal(letter);
 
+                    // Send signal to rotors
                     for (int i = size - 1; i >= 0; i--) {
                         decrypted_letter = CurrentRotors[i].ProcessSignal(decrypted_letter);
                     }
 
+                    // Send signal to reflector
                     decrypted_letter = CurrentReflector.ProcessSignal(decrypted_letter);
 
+                    // Send back signal to rotors
                     for (int i = 0; i < size; i++) {
                         decrypted_letter = CurrentRotors[i].ProcessReversedSignal(decrypted_letter);
                     }
 
+                    // Send back signal to plugboard
                     decrypted_letter = Plugboard.ProcessSignal(decrypted_letter);
+
+                    // Add decrypted letter
                     Decrypted += decrypted_letter;
                 }
                 else {

@@ -10,14 +10,14 @@ namespace Encryption.View {
 
     class SettingsView : BasicView {
         public SettingsView() {
-            // Main Border
+            // Main border
             ViewBorder = new Border(new Position(80, 0), new Size(38, 49));
             ViewBorder.Name = "SettingsViewBorder";
 
             ViewBorder.Coordinates.Add(new Position(1, 0));
             ViewBorder.Coordinates.Add(new Position(1, 1));
 
-            // Settings Label
+            // Main label
             var settingsViewLabel = new Label(new Position(95, 2));
 
             settingsViewLabel.Name = "SettingsViewLabel";
@@ -25,7 +25,8 @@ namespace Encryption.View {
 
             Controls.Add(settingsViewLabel);
 
-            // Add Plugboard Connection Button
+
+            // Add plugboard connection button
             var plugboardChangeConnectionsButton = new Button(new Position(80, 4), new Size(38, 3));
 
             plugboardChangeConnectionsButton.Name = "PlugboardChangeConnectionButton";
@@ -34,7 +35,8 @@ namespace Encryption.View {
             plugboardChangeConnectionsButton.Coordinates.Add(new Position(0, 0));
             Controls.Add(plugboardChangeConnectionsButton);
 
-            // Rotor 1 - Change Type
+
+            // Rotor 1 - change type button
             var rotorChangeTypeButton1 = new Button(new Position(80, 8), new Size(38, 3));
 
             rotorChangeTypeButton1.Name = "RotorChangeTypeButton1";
@@ -43,7 +45,7 @@ namespace Encryption.View {
             rotorChangeTypeButton1.Coordinates.Add(new Position(0, 1));
             Controls.Add(rotorChangeTypeButton1);
 
-            // Rotor 1 - Change Ring
+            // Rotor 1 - change ring button
             var rotorChangeRingButton1 = new Button(new Position(80, 10), new Size(38, 3));
 
             rotorChangeRingButton1.Name = "RotorChangeRingButton1";
@@ -52,7 +54,8 @@ namespace Encryption.View {
             rotorChangeRingButton1.Coordinates.Add(new Position(0, 2));
             Controls.Add(rotorChangeRingButton1);
 
-            // Rotor 2 - Change Type
+
+            // Rotor 2 - change type button
             var rotorChangeTypeButton2 = new Button(new Position(80, 14), new Size(38, 3));
 
             rotorChangeTypeButton2.Name = "RotorChangeTypeButton2";
@@ -61,7 +64,7 @@ namespace Encryption.View {
             rotorChangeTypeButton2.Coordinates.Add(new Position(0, 3));
             Controls.Add(rotorChangeTypeButton2);
 
-            // Rotor 2 - Change Ring
+            // Rotor 2 - change ring button
             var rotorChangeRingButton2 = new Button(new Position(80, 16), new Size(38, 3));
 
             rotorChangeRingButton2.Name = "RotorChangeRingButton2";
@@ -70,7 +73,8 @@ namespace Encryption.View {
             rotorChangeRingButton2.Coordinates.Add(new Position(0, 4));
             Controls.Add(rotorChangeRingButton2);
 
-            // Rotor 3 - Change Type
+
+            // Rotor 3 - change type button
             var rotorChangeTypeButton3 = new Button(new Position(80, 20), new Size(38, 3));
 
             rotorChangeTypeButton3.Name = "RotorChangeTypeButton3";
@@ -79,7 +83,7 @@ namespace Encryption.View {
             rotorChangeTypeButton3.Coordinates.Add(new Position(0, 5));
             Controls.Add(rotorChangeTypeButton3);
 
-            // Rotor 3 - Change Ring
+            // Rotor 3 - change ring button
             var rotorChangeRingButton3 = new Button(new Position(80, 22), new Size(38, 3));
 
             rotorChangeRingButton3.Name = "RotorChangeRingButton3";
@@ -88,7 +92,8 @@ namespace Encryption.View {
             rotorChangeRingButton3.Coordinates.Add(new Position(0, 6));
             Controls.Add(rotorChangeRingButton3);
 
-            // Change Reflector Type
+
+            // Change reflector type button
             var reflectorChangeType = new Button(new Position(80, 26), new Size(38, 3));
 
             reflectorChangeType.Name = "ReflectorChangeTypeButton";
@@ -97,7 +102,8 @@ namespace Encryption.View {
             reflectorChangeType.Coordinates.Add(new Position(0, 7));
             Controls.Add(reflectorChangeType);
 
-            // Save Settings
+
+            // Save settings button
             var saveSettingsButton = new Button(new Position(80, 30), new Size(38, 3));
 
             saveSettingsButton.Name = "SaveSettingsButton";
@@ -106,7 +112,7 @@ namespace Encryption.View {
             saveSettingsButton.Coordinates.Add(new Position(0, 8));
             Controls.Add(saveSettingsButton);
 
-            // Load Settings
+            // Load settings button
             var loadSettingsButton = new Button(new Position(80, 32), new Size(38, 3));
 
             loadSettingsButton.Name = "LoadSettingsButton";

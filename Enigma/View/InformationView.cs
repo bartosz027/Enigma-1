@@ -10,13 +10,14 @@ namespace Encryption.View {
 
     class InformationView : BasicView {
         public InformationView() {
-            // Main Border
+            // Main border
             ViewBorder = new Border(new Position(0, 39), new Size(80, 10)) {
                 Name = "InformationViewBorder",
                 ReadOnly = true
             };
 
-            // Plugboard Settings Label
+
+            // Plugboard settings label
             var plugboardConnectedLettersLabel = new Label(new Position(1, 40));
 
             plugboardConnectedLettersLabel.Name = "PlugboardConnectedLettersLabel";
@@ -24,7 +25,8 @@ namespace Encryption.View {
 
             Controls.Add(plugboardConnectedLettersLabel);
 
-            // Rotor 1 - Type Label
+
+            // Rotor 1 - type label
             var rotorTypeLabel1 = new Label(new Position(1, 41));
 
             rotorTypeLabel1.Name = "RotorTypeLabel1";
@@ -32,7 +34,7 @@ namespace Encryption.View {
 
             Controls.Add(rotorTypeLabel1);
 
-            // Rotor 1 - Ring Label
+            // Rotor 1 - ring label
             var rotorRingLabel1 = new Label(new Position(1, 42));
 
             rotorRingLabel1.Name = "RotorRingLabel1";
@@ -40,7 +42,8 @@ namespace Encryption.View {
 
             Controls.Add(rotorRingLabel1);
 
-            // Rotor 2 - Type Label
+
+            // Rotor 2 - type label
             var rotorTypeLabel2 = new Label(new Position(1, 43));
 
             rotorTypeLabel2.Name = "RotorTypeLabel2";
@@ -48,7 +51,7 @@ namespace Encryption.View {
 
             Controls.Add(rotorTypeLabel2);
 
-            // Rotor 2 - Ring Label
+            // Rotor 2 - ring label
             var rotorRingLabel2 = new Label(new Position(1, 44));
 
             rotorRingLabel2.Name = "RotorRingLabel2";
@@ -56,7 +59,8 @@ namespace Encryption.View {
 
             Controls.Add(rotorRingLabel2);
 
-            // Rotor 3 - Type Label
+
+            // Rotor 3 - type label
             var rotorTypeLabel3 = new Label(new Position(1, 45));
 
             rotorTypeLabel3.Name = "RotorTypeLabel3";
@@ -64,7 +68,7 @@ namespace Encryption.View {
 
             Controls.Add(rotorTypeLabel3);
 
-            // Rotor 3 - Ring Label
+            // Rotor 3 - ring label
             var rotorRingLabel3 = new Label(new Position(1, 46));
 
             rotorRingLabel3.Name = "RotorRingLabel3";
@@ -72,7 +76,8 @@ namespace Encryption.View {
 
             Controls.Add(rotorRingLabel3);
 
-            // Reflector - Type Label
+
+            // Reflector type label
             var reflectorTypeLabel = new Label(new Position(1, 47));
 
             reflectorTypeLabel.Name = "ReflectorTypeLabel";
@@ -80,6 +85,7 @@ namespace Encryption.View {
 
             Controls.Add(reflectorTypeLabel);
         }
+
 
         public override void OnUpdate() {
             foreach(var control in Controls) {

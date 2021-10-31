@@ -16,6 +16,7 @@ namespace Encryption.Controller {
             _Enigma = enigma;
         }
 
+
         public override void UpdateView() {
             base.UpdateView();
 
@@ -23,7 +24,7 @@ namespace Encryption.Controller {
             var plugboardConnectedLettersLabel = _View.GetControl("PlugboardConnectedLettersLabel") as Label;
             plugboardConnectedLettersLabel.Content += _Enigma.Plugboard.GetConnectedPlugs();
 
-            // Rotor - Type settings
+            // Rotor type settings
             var rotorTypeLabel1 = _View.GetControl("RotorTypeLabel1") as Label;
             rotorTypeLabel1.Content += _Enigma.CurrentRotors[0].GetName();
 
@@ -33,7 +34,7 @@ namespace Encryption.Controller {
             var rotorTypeLabel3 = _View.GetControl("RotorTypeLabel3") as Label;
             rotorTypeLabel3.Content += _Enigma.CurrentRotors[2].GetName();
 
-            // Rotor - Ring settings
+            // Rotor ring settings
             var rotorRingLabel1 = _View.GetControl("RotorRingLabel1") as Label;
             var ring1 = _Enigma.CurrentRotors[0].GetRingPosition();
 
@@ -52,6 +53,8 @@ namespace Encryption.Controller {
             reflectorTypeLabel.Content += _Enigma.CurrentReflector.GetName();
         }
 
+
+        // Model variable
         private Enigma _Enigma;
     }
 

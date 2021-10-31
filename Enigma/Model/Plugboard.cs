@@ -51,16 +51,15 @@ namespace Encryption.Model {
             }
         }
 
+        public void Reset() {
+            _Input = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            _Output = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        }
+
 
         public char ProcessSignal(char letter) {
             int index = _Input.IndexOf(letter);
             return _Output[index];
-        }
-
-
-        public void Reset() {
-            _Input = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            _Output = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         }
 
 
@@ -97,6 +96,7 @@ namespace Encryption.Model {
                 return false;
             }
         }
+
 
         // Encryption data (wires emulation)
         private string _Input;

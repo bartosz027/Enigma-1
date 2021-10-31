@@ -20,6 +20,7 @@ namespace Encryption.Model {
             return _Output[index];
         }
 
+
         public string GetName() {
             return _Name;
         }

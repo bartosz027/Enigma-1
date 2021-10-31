@@ -10,13 +10,13 @@ namespace Encryption.View {
 
     class EncryptionView : BasicView {
         public EncryptionView() {
-            // Main Border
+            // Main border
             ViewBorder = new Border(new Position(0, 15), new Size(80, 24));
             ViewBorder.Name = "EncryptionViewBorder";
 
             ViewBorder.Coordinates.Add(new Position(0, 1));
 
-            // Input
+            // Input label
             var encryptionInputLabel = new Label(new Position(19, 17));
 
             encryptionInputLabel.Name = "EncryptionInputLabel";
@@ -24,6 +24,7 @@ namespace Encryption.View {
 
             Controls.Add(encryptionInputLabel);
 
+            // Input textbox
             var encryptionInputTextBox = new TextBox(new Position(5, 18), new Size(33, 15));
 
             encryptionInputTextBox.Name = "EncryptionInputTextBox";
@@ -31,7 +32,7 @@ namespace Encryption.View {
 
             Controls.Add(encryptionInputTextBox);
 
-            // Output
+            // Output label
             var encryptionOutputLabel = new Label(new Position(55, 17));
 
             encryptionOutputLabel.Name = "EncryptionOutputLabel";
@@ -39,6 +40,7 @@ namespace Encryption.View {
 
             Controls.Add(encryptionOutputLabel);
 
+            // Output textbox
             var encryptionOutputTextBox = new TextBox(new Position(42, 18), new Size(33, 15));
 
             encryptionOutputTextBox.Name = "EncryptionOutputTextBox";
@@ -46,7 +48,7 @@ namespace Encryption.View {
 
             Controls.Add(encryptionOutputTextBox);
 
-            // [Encryption / Decryption] Button
+            // Encrypion button
             var encryptionButton = new Button(new Position(8, 34), new Size(64, 3));
 
             encryptionButton.Name = "EncryptionButton";

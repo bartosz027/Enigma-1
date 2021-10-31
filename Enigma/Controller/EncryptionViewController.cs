@@ -15,9 +15,10 @@ namespace Encryption.Controller {
         public EncryptionViewController(Enigma enigma, EncryptionView view) : base(view) {
             _Enigma = enigma;
 
-            // Controller callbacks
+            // Controls callbacks
             SetCallback("EncryptionButton", EncryptionButton_OnClick);
         }
+
 
         // Callback methods
         private void EncryptionButton_OnClick(object sender, EventArgs args) {
@@ -27,6 +28,7 @@ namespace Encryption.Controller {
             var encryptionOutputTextBox = _View.GetControl("EncryptionOutputTextBox") as TextBox;
             encryptionOutputTextBox.Text = _Enigma.Decrypted;
         }
+
 
         // Model variable
         private Enigma _Enigma;

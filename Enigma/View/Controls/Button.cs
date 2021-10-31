@@ -24,6 +24,7 @@ namespace Encryption.View.Controls {
         }
 
 
+        // Button properties
         public string Content { get; set; } = "";
     }
 

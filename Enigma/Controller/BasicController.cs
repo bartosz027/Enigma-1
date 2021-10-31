@@ -40,6 +40,7 @@ namespace Encryption.Controller {
         }
 
 
+        // View variable
         protected BasicView _View;
     }
 

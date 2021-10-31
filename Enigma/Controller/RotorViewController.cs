@@ -15,7 +15,7 @@ namespace Encryption.Controller {
         public RotorViewController(Enigma enigma, RotorView view) : base(view) {
             _Enigma = enigma;
 
-            // Controller callbacks
+            // Controls callbacks
             SetCallback("RotorKeyUpButton1", RotorKeyUpButton_OnClick);
             SetCallback("RotorKeyUpButton2", RotorKeyUpButton_OnClick);
             SetCallback("RotorKeyUpButton3", RotorKeyUpButton_OnClick);
@@ -24,6 +24,7 @@ namespace Encryption.Controller {
             SetCallback("RotorKeyDownButton2", RotorKeyDownButton_OnClick);
             SetCallback("RotorKeyDownButton3", RotorKeyDownButton_OnClick);
         }
+
 
         // Callback methods
         private void RotorKeyUpButton_OnClick(object sender, EventArgs args) {
@@ -93,6 +94,7 @@ namespace Encryption.Controller {
             // View update
             control.Content = letter.ToString();
         }
+
 
         // Model variable
         private Enigma _Enigma;
