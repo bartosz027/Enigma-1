@@ -115,6 +115,11 @@ namespace Encryption.View {
                     }
                     case ConsoleKey.Enter: {
                         control.OnClick();
+
+                        if (ExitViewOnEnterKeyPress == true) {
+                            return;
+                        }
+
                         break;
                     }
                     case ConsoleKey.Escape: {
@@ -149,6 +154,10 @@ namespace Encryption.View {
         }
 
 
+        // View properties
+        public bool ExitViewOnEnterKeyPress { get; set; }
+
+        // View controls
         public Border ViewBorder { get; set; }
         public List<BasicControl> Controls { get; set; }
     }
