@@ -1,4 +1,6 @@
-﻿using System;
+﻿#pragma warning disable CA1416 // Validate platform compatibility
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,7 @@ using Encryption.View.Controls;
 using Encryption.Model;
 using Encryption.Controller;
 
-namespace Encryption {
+namespace Encryption.Core {
 
     class Window {
         public Window() {
@@ -136,10 +138,11 @@ namespace Encryption {
 
 
         private void InitWindow() {
-            Console.SetWindowSize(175, 49);
-            Console.SetBufferSize(175, 49);
-
+            ConsoleHelper.SetCurrentFont("Consolas", 14);
             Console.CursorVisible = false;
+
+            Console.SetWindowSize(176, 49);
+            Console.SetBufferSize(176, 49);
         }
 
         private void InitControllers() {
