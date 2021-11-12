@@ -48,16 +48,23 @@ namespace Encryption.View {
 
             Controls.Add(encryptionOutputTextBox);
 
-            // Encrypion button
-            var encryptionButton = new Button(new Position(8, 34), new Size(64, 3));
+            // Encrypion button [from TextBox]
+            var encryptionButton1 = new Button(new Position(5, 34), new Size(33, 3));
 
-            encryptionButton.Name = "EncryptionButton";
-            encryptionButton.Content = "Encrypt / Decrypt";
+            encryptionButton1.Name = "EncryptionButton1";
+            encryptionButton1.Content = "Encrypt from TextBox";
 
-            encryptionButton.Coordinates.Add(new Position(0, 1));
-            encryptionButton.Coordinates.Add(new Position(1, 1));
+            encryptionButton1.Coordinates.Add(new Position(0, 1));
+            Controls.Add(encryptionButton1);
 
-            Controls.Add(encryptionButton);
+            // Encrypion button [from File]
+            var encryptionButton2 = new Button(new Position(42, 34), new Size(33, 3));
+
+            encryptionButton2.Name = "EncryptionButton2";
+            encryptionButton2.Content = "Encrypt from File";
+
+            encryptionButton2.Coordinates.Add(new Position(1, 1));
+            Controls.Add(encryptionButton2);
         }
     }
 

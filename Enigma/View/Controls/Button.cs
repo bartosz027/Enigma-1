@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace Encryption.View.Controls {
 
     class Button : BasicControl {
-        public Button(Position position, Size size) : base(position, size) {
-
+        public Button(Position position, Size size) 
+            : base(position, size) {
         }
 
 

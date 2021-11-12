@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Encryption.View.Controls {
 
     class Label : BasicControl {
-        public Label(Position position) : base(position, new Size(0, 0)) {
+        public Label(Position position) : base(position, new Size(0, 1)) {
             FontColor = ConsoleColor.Gray;
             ReadOnly = true;
         }
