@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Encryption.View.Controls {
 
@@ -38,8 +35,8 @@ namespace Encryption.View.Controls {
             } while (consoleKeyInfo.Key != ConsoleKey.Escape && consoleKeyInfo.Key != ConsoleKey.Enter);
 
             Console.CursorVisible = false;
-
             SelectedColor = ConsoleColor.DarkBlue;
+
             UpdateBorder();
 
             if (_EventHandler != null && consoleKeyInfo.Key == ConsoleKey.Enter) {
@@ -93,14 +90,14 @@ namespace Encryption.View.Controls {
 
         // TextBox properties
         public string Text {
-            get { 
-                return _Text; 
+            get {
+                return _Text;
             }
-            set { 
-                _PrevTextLength = _Text.Length; 
-                _Text = value; 
+            set {
+                _PrevTextLength = _Text.Length;
+                _Text = value;
                 
-                UpdateText(); 
+                UpdateText();
             }
         }
         private string _Text = "";

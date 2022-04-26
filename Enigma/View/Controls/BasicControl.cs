@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Encryption.View.Controls {
 
@@ -83,7 +80,7 @@ namespace Encryption.View.Controls {
         }
 
 
-        public virtual void Clear() {
+        public virtual void OnDelete() {
             for (int i = 0; i < _Size.Height; i++) {
                 Console.SetCursorPosition(_Position.X, _Position.Y + i);
                 Console.Write(new string(' ', (_Size.Width)));
@@ -99,7 +96,7 @@ namespace Encryption.View.Controls {
         // Control identifier
         public string Name { get; set; }
 
-        // Control border highlight mode
+        // Control border highlight
         public bool Selected {
             get { return _Selected; }
             set { _Selected = value; OnUpdate(); }
@@ -116,7 +113,7 @@ namespace Encryption.View.Controls {
         public ConsoleColor SelectedColor { get; set; }
         public ConsoleColor ReadOnlyColor { get; set; }
 
-        // Control coordinates (only for highlighting -> allows to set which control to select after key press)
+        // Control coordinates (only for highlighting -> allows to set which control to highlight after key press)
         public List<Position> Coordinates { get; set; }
 
         // Control placement (position: x -> top, y -> left)

@@ -3,8 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Encryption.View;
 using Encryption.View.Controls;
@@ -128,7 +126,6 @@ namespace Encryption.Core {
                     case ConsoleKey.Enter: {
                         controller.HighlightView(false);
                         controller.EnterView();
-
                         controller.HighlightView(true);
                         break;
                     }

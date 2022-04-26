@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Encryption.Model {
+﻿namespace Encryption.Model {
 
     class Reflector {
         public Reflector(string name, string input, string output) {
@@ -20,16 +14,15 @@ namespace Encryption.Model {
             return _Output[index];
         }
 
-
         public string GetName() {
             return _Name;
         }
 
 
-        // Identifier (unique string)
+        // Identifier
         private string _Name;
 
-        // Encryption data (wires emulation)
+        // Wires simulation
         private string _Input;
         private string _Output;
     }

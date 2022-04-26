@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Encryption.Model {
 
@@ -46,6 +42,7 @@ namespace Encryption.Model {
             settings += CurrentReflector.GetName();
             settings += ' ';
 
+            // Save rotor settings
             foreach(var rotor in CurrentRotors) {
                 settings += rotor.GetName();
                 settings += ' ';
@@ -60,17 +57,17 @@ namespace Encryption.Model {
         }
 
         public void LoadSettings(string filepath) {
+            // Reset plugboard settings
+            Plugboard.Reset();
+
             // Reset rotor keys
-            foreach(var rotor in CurrentRotors) {
+            foreach (var rotor in CurrentRotors) {
                 rotor.ResetKey();
             }
 
-            // Get current settings
+            // Get settings from file
             string[] settings = File.ReadAllText(filepath).Split(" ");
             char[] keys = { CurrentRotors[0].GetKeyPosition(), CurrentRotors[1].GetKeyPosition(), CurrentRotors[2].GetKeyPosition() };
-
-            // Reset plugboard settings
-            Plugboard.Reset();
 
             // Load plugboard settings
             for(int i = 0; settings[0] != "NULL" && i < settings[0].Length; i += 2) {
@@ -87,10 +84,10 @@ namespace Encryption.Model {
             for(int i = 2; settings[i] != "" && i < settings.Length; i += 2) {
                 var rotor = AvailableRotors.Find(p => (p.GetName() == settings[i]));
 
-                var rotorClone = rotor.Clone() as Rotor;
-                rotorClone.SetRingPosition(int.Parse(settings[i + 1]));
+                var rotor_clone = rotor.Clone() as Rotor;
+                rotor_clone.SetRingPosition(int.Parse(settings[i + 1]));
 
-                CurrentRotors.Add(rotorClone);
+                CurrentRotors.Add(rotor_clone);
             }
 
             for(int i = 0; i < CurrentRotors.Count; i++) {

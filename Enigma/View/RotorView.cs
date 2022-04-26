@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Encryption.View.Controls;
+﻿using Encryption.View.Controls;
 
 namespace Encryption.View {
 
     class RotorView : BasicView {
         public RotorView() {
-            // Main border
+            // Border
             ViewBorder = new Border(new Position(0, 0), new Size(80, 15));
-            ViewBorder.Name = "RotorViewBorder";
 
+            ViewBorder.Name = "RotorViewBorder";
             ViewBorder.Coordinates.Add(new Position(0, 0));
 
-            // Main label
+            // Label - main
             var rotorViewLabel = new Label(new Position(31, 2));
 
             rotorViewLabel.Name = "RotorViewLabel";
@@ -24,8 +18,7 @@ namespace Encryption.View {
 
             Controls.Add(rotorViewLabel);
 
-
-            // Rotor 1 - Key UP button
+            // Button - increase key 1
             var rotorKeyUpButton1 = new Button(new Position(32, 4), new Size(3, 3));
 
             rotorKeyUpButton1.Name = "RotorKeyUpButton1";
@@ -34,7 +27,7 @@ namespace Encryption.View {
             rotorKeyUpButton1.Coordinates.Add(new Position(0, 0));
             Controls.Add(rotorKeyUpButton1);
 
-            // Rotor 1 - label
+            // Label - rotor key 1
             var rotorKeyLabel1 = new Label(new Position(33, 8));
 
             rotorKeyLabel1.Name = "RotorKeyLabel1";
@@ -42,7 +35,7 @@ namespace Encryption.View {
 
             Controls.Add(rotorKeyLabel1);
 
-            // Rotor 1 - Key DOWN button
+            // Button - decrease key 1
             var rotorKeyDownButton1 = new Button(new Position(32, 10), new Size(3, 3));
 
             rotorKeyDownButton1.Name = "RotorKeyDownButton1";
@@ -51,8 +44,7 @@ namespace Encryption.View {
             rotorKeyDownButton1.Coordinates.Add(new Position(0, 1));
             Controls.Add(rotorKeyDownButton1);
 
-
-            // Rotor 2 - Key UP button
+            // Button - increase key 2
             var rotorKeyUpButton2 = new Button(new Position(38, 4), new Size(3, 3));
 
             rotorKeyUpButton2.Name = "RotorKeyUpButton2";
@@ -61,7 +53,7 @@ namespace Encryption.View {
             rotorKeyUpButton2.Coordinates.Add(new Position(1, 0));
             Controls.Add(rotorKeyUpButton2);
 
-            // Rotor 2 - label
+            // Label - rotor key 2
             var rotorKeyLabel2 = new Label(new Position(39, 8));
 
             rotorKeyLabel2.Name = "RotorKeyLabel2";
@@ -69,7 +61,7 @@ namespace Encryption.View {
 
             Controls.Add(rotorKeyLabel2);
 
-            // Rotor 2 - Key DOWN button
+            // Button - decrease key 2
             var rotorKeyDownButton2 = new Button(new Position(38, 10), new Size(3, 3));
 
             rotorKeyDownButton2.Name = "RotorKeyDownButton2";
@@ -78,8 +70,7 @@ namespace Encryption.View {
             rotorKeyDownButton2.Coordinates.Add(new Position(1, 1));
             Controls.Add(rotorKeyDownButton2);
 
-
-            // Rotor 3 - Key UP button
+            // Button - increase key 3
             var rotorKeyUpButton3 = new Button(new Position(44, 4), new Size(3, 3));
 
             rotorKeyUpButton3.Name = "RotorKeyUpButton3";
@@ -88,7 +79,7 @@ namespace Encryption.View {
             rotorKeyUpButton3.Coordinates.Add(new Position(2, 0));
             Controls.Add(rotorKeyUpButton3);
 
-            // Rotor 3 - label
+            // Label - rotor key 3
             var rotorKeyLabel3 = new Label(new Position(45, 8));
 
             rotorKeyLabel3.Name = "RotorKeyLabel3";
@@ -96,7 +87,7 @@ namespace Encryption.View {
 
             Controls.Add(rotorKeyLabel3);
 
-            // Rotor 3 - Key DOWN button
+            // Button - decrease key 3
             var rotorKeyDownButton3 = new Button(new Position(44, 10), new Size(3, 3));
 
             rotorKeyDownButton3.Name = "RotorKeyDownButton3";

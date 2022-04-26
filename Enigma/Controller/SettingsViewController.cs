@@ -57,7 +57,6 @@ namespace Encryption.Controller {
 
             view.Controls.Add(plugboardChangeConnectionLabel);
 
-
             // Plugboard change connection textbox
             var plugboardChangeConnectionTextBox = new TextBox(new Position(126, 10), new Size(41, 3));
             plugboardChangeConnectionTextBox.Name = "PlugboardChangeConnectionTextBox";
@@ -66,7 +65,6 @@ namespace Encryption.Controller {
             plugboardChangeConnectionTextBox.Coordinates.Add(new Position(1, 0));
 
             view.Controls.Add(plugboardChangeConnectionTextBox);
-
 
             // Plugboard change connection message label - 1
             var plugboardChangeConnectionMessageLabel1 = new Label(new Position(126, 18));
@@ -83,7 +81,6 @@ namespace Encryption.Controller {
             plugboardChangeConnectionMessageLabel2.Content = "";
 
             view.Controls.Add(plugboardChangeConnectionMessageLabel2);
-
 
             // Button callback
             var button_on_click = new EventHandler((obj, arg) => {
@@ -140,7 +137,6 @@ namespace Encryption.Controller {
                 OnSettingsChanged();
             });
 
-
             // Plugboard add connection button
             var plugboardAddConnectionButton = new Button(new Position(126, 14), new Size(18, 3)) {
                 Name = "PlugboardAddConnectionButton",
@@ -163,7 +159,6 @@ namespace Encryption.Controller {
 
             view.Controls.Add(plugboardRemoveConnectionButton);
 
-
             // Change control border color
             current_control.SelectedColor = ConsoleColor.DarkCyan;
             current_control.OnUpdate();
@@ -173,7 +168,7 @@ namespace Encryption.Controller {
             view.OnClick();
 
             // Delete view
-            view.Clear();
+            view.OnDelete();
 
             // Change control border color
             current_control.SelectedColor = ConsoleColor.DarkBlue;
@@ -200,7 +195,6 @@ namespace Encryption.Controller {
             };
 
             view.Controls.Add(selectRotorLabel);
-
 
             // Rotor change type buttons
             for (int i = 0; i < rotors.Count; i++) {
@@ -239,7 +233,6 @@ namespace Encryption.Controller {
                 view.Controls.Add(button);
             }
 
-
             // Change control border color
             current_control.SelectedColor = ConsoleColor.DarkCyan;
             current_control.OnUpdate();
@@ -249,7 +242,7 @@ namespace Encryption.Controller {
             view.OnClick();
 
             // Delete view
-            view.Clear();
+            view.OnDelete();
 
             // Change control border color
             current_control.SelectedColor = ConsoleColor.DarkBlue;
@@ -287,7 +280,6 @@ namespace Encryption.Controller {
                 OnSettingsChanged();
             });
 
-
             // Create temporary view
             var view = new BasicView();
             view.ExitViewOnEnterKeyPress = true;
@@ -303,7 +295,6 @@ namespace Encryption.Controller {
             };
 
             view.Controls.Add(selectRotorRingLabel);
-
 
             // Rotor change ring buttons
             for (int i = 0; i < 13; i++) {
@@ -330,7 +321,6 @@ namespace Encryption.Controller {
                 view.Controls.Add(button);
             }
 
-
             // Change control border color
             current_control.SelectedColor = ConsoleColor.DarkCyan;
             current_control.OnUpdate();
@@ -340,7 +330,7 @@ namespace Encryption.Controller {
             view.OnClick();
 
             // Delete view
-            view.Clear();
+            view.OnDelete();
 
             // Change control border color
             current_control.SelectedColor = ConsoleColor.DarkBlue;
@@ -368,7 +358,6 @@ namespace Encryption.Controller {
 
             view.Controls.Add(selectReflectorTypeLabel);
 
-
             // Reflector change type buttons
             for (int i = 0; i < reflectors.Count; i++) {
                 var button = new Button(new Position(134, 9 + (2 * i)), new Size(25, 3));
@@ -390,7 +379,6 @@ namespace Encryption.Controller {
                 view.Controls.Add(button);
             }
 
-
             // Change control border color
             current_control.SelectedColor = ConsoleColor.DarkCyan;
             current_control.OnUpdate();
@@ -400,7 +388,7 @@ namespace Encryption.Controller {
             view.OnClick();
 
             // Delete view
-            view.Clear();
+            view.OnDelete();
 
             // Change control border color
             current_control.SelectedColor = ConsoleColor.DarkBlue;
@@ -426,7 +414,6 @@ namespace Encryption.Controller {
 
             view.Controls.Add(saveSettingsLabel);
 
-
             // Message label - 1
             var saveSettingsMessageLabel1 = new Label(new Position(126, 22)) {
                 Name = "SaveSettingsMessageLabel1",
@@ -442,7 +429,6 @@ namespace Encryption.Controller {
             };
 
             view.Controls.Add(saveSettingsMessageLabel2);
-
 
             // Save settings buttons
             for(int i = 1; i <= 3; i++) {
@@ -465,7 +451,6 @@ namespace Encryption.Controller {
                 view.Controls.Add(saveSettingsButton);
             }
 
-
             // Change control border color
             current_control.SelectedColor = ConsoleColor.DarkCyan;
             current_control.OnUpdate();
@@ -475,7 +460,7 @@ namespace Encryption.Controller {
             view.OnClick();
 
             // Delete view
-            view.Clear();
+            view.OnDelete();
 
             // Change control border color
             current_control.SelectedColor = ConsoleColor.DarkBlue;
@@ -500,7 +485,6 @@ namespace Encryption.Controller {
 
             view.Controls.Add(loadSettingsLabel);
 
-
             // Message label - 1
             var loadSettingsMessageLabel1 = new Label(new Position(126, 22)) {
                 Name = "LoadSettingsMessageLabel1",
@@ -516,7 +500,6 @@ namespace Encryption.Controller {
             };
 
             view.Controls.Add(loadSettingsMessageLabel2);
-
 
             // Load settings buttons
             for (int i = 1; i <= 3; i++) {
@@ -555,7 +538,6 @@ namespace Encryption.Controller {
                 view.Controls.Add(loadSettingsButton);
             }
 
-
             // Change control border color
             current_control.SelectedColor = ConsoleColor.DarkCyan;
             current_control.OnUpdate();
@@ -565,7 +547,7 @@ namespace Encryption.Controller {
             view.OnClick();
 
             // Delete view
-            view.Clear();
+            view.OnDelete();
 
             // Change control border color
             current_control.SelectedColor = ConsoleColor.DarkBlue;

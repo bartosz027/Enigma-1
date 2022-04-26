@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Encryption.View.Controls {
+﻿namespace Encryption.View.Controls {
 
     class Button : BasicControl {
         public Button(Position position, Size size) 
@@ -19,8 +13,8 @@ namespace Encryption.View.Controls {
         public override void OnUpdate() {
             base.OnUpdate();
 
-            Console.SetCursorPosition(_Position.X + ((_Size.Width - Content.Length) / 2), _Position.Y + 1);
-            Console.Write(Content);
+            System.Console.SetCursorPosition(_Position.X + ((_Size.Width - Content.Length) / 2), _Position.Y + 1);
+            System.Console.Write(Content);
         }
 
 

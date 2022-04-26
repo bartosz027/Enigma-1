@@ -1,8 +1,7 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Encryption.View.Controls;
 
@@ -138,12 +137,11 @@ namespace Encryption.View {
             }
         }
 
-
-        public virtual void Clear() {
-            ViewBorder.Clear();
+        public virtual void OnDelete() {
+            ViewBorder.OnDelete();
 
             foreach (var control in Controls) {
-                control.Clear();
+                control.OnDelete();
             }
         }
 

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Encryption.Model {
 
-namespace Encryption.Model {
-
-    class Rotor : ICloneable {
+    class Rotor : System.ICloneable {
         public Rotor(string name, string input, string output, char turnover) {
             _Name = name;
 
@@ -17,7 +11,6 @@ namespace Encryption.Model {
             _RingPosition = 0;
 
             _TurnoverPosition = turnover;
-
             _ResetKeyPositionValue = 'A';
         }
 
@@ -117,18 +110,18 @@ namespace Encryption.Model {
         }
 
 
-        // Identifier (unique string)
+        // Identifier
         private string _Name;
 
-        // Encryption data (wires emulation)
+        // Wires simulation
         private string _Input;
         private string _Output;
 
-        // Encryption data (allows to manipulate wires output)
+        // Allows to manipulate wires output
         private int _KeyPosition;
         private int _RingPosition;
 
-        // Encryption data (allows to set when adjacent rotor moves too)
+        // Allows to set when adjacent rotor moves too
         private char _TurnoverPosition;
 
         // Default value of key position (_KeyPosition changes after every encryption => you need to reset it's value to encrypt another message properly)

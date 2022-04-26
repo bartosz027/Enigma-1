@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Encryption.View;
 using Encryption.View.Controls;
@@ -39,10 +35,10 @@ namespace Encryption.Controller {
             // Main label
             var fileLabel = new Label(new Position(134, 7)) {
                 Name = "FileLabel",
-                Content = "Drag and Drop file [.txt]"
+                Content = "Drag and drop file [.txt]"
             };
 
-            // Drag and Drop control
+            // Drag and drop control
             var fileDragDrop = new DragDrop(new Position(126, 8), new Size(41, 27)) {
                 Name = "FileDragDrop",
                 Selected = true
@@ -105,11 +101,11 @@ namespace Encryption.Controller {
             }
 
             // Delete controls
-            fileLabel.Clear();
-            fileDragDrop.Clear();
+            fileLabel.OnDelete();
+            fileDragDrop.OnDelete();
 
-            fileMessageLabel1.Clear();
-            fileMessageLabel2.Clear();
+            fileMessageLabel1.OnDelete();
+            fileMessageLabel2.OnDelete();
 
             // Change control border color
             current_control.SelectedColor = ConsoleColor.DarkBlue;

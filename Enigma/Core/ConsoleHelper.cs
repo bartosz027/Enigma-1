@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Encryption.Core {
 
@@ -11,6 +7,7 @@ namespace Encryption.Core {
     public static class ConsoleHelper {
         private const int FixedWidthTrueType = 54;
         private const int StandardOutputHandle = -11;
+        private static readonly IntPtr ConsoleOutputHandle = GetStdHandle(StandardOutputHandle);
 
         [DllImport("kernel32.dll", SetLastError = true)]
         internal static extern IntPtr GetStdHandle(int nStdHandle);
@@ -23,19 +20,18 @@ namespace Encryption.Core {
         [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         internal static extern bool GetCurrentConsoleFontEx(IntPtr hConsoleOutput, bool MaximumWindow, ref FontInfo ConsoleCurrentFontEx);
 
-
-        private static readonly IntPtr ConsoleOutputHandle = GetStdHandle(StandardOutputHandle);
-
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
         public struct FontInfo {
             internal int cbSize;
             internal int FontIndex;
+
             internal short FontWidth;
             public short FontSize;
+
             public int FontFamily;
             public int FontWeight;
+
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
-            //[MarshalAs(UnmanagedType.ByValArray, ArraySubType = UnmanagedType.wc, SizeConst = 32)]
             public string FontName;
         }
 
@@ -67,13 +63,14 @@ namespace Encryption.Core {
                 FontInfo after = new FontInfo {
                     cbSize = Marshal.SizeOf<FontInfo>()
                 };
-                GetCurrentConsoleFontEx(ConsoleOutputHandle, false, ref after);
 
+                GetCurrentConsoleFontEx(ConsoleOutputHandle, false, ref after);
                 return new[] { before, set, after };
             }
             else {
                 var er = Marshal.GetLastWin32Error();
                 Console.WriteLine("Get error " + er);
+
                 throw new System.ComponentModel.Win32Exception(er);
             }
         }

@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Encryption.View.Controls;
+﻿using Encryption.View.Controls;
 
 namespace Encryption.View {
 
     class EncryptionView : BasicView {
         public EncryptionView() {
-            // Main border
+            // Border
             ViewBorder = new Border(new Position(0, 15), new Size(80, 24));
-            ViewBorder.Name = "EncryptionViewBorder";
 
+            ViewBorder.Name = "EncryptionViewBorder";
             ViewBorder.Coordinates.Add(new Position(0, 1));
 
-            // Input label
+            // Label - input
             var encryptionInputLabel = new Label(new Position(19, 17));
 
             encryptionInputLabel.Name = "EncryptionInputLabel";
@@ -24,7 +18,7 @@ namespace Encryption.View {
 
             Controls.Add(encryptionInputLabel);
 
-            // Input textbox
+            // TextBox - input
             var encryptionInputTextBox = new TextBox(new Position(5, 18), new Size(33, 15));
 
             encryptionInputTextBox.Name = "EncryptionInputTextBox";
@@ -32,7 +26,7 @@ namespace Encryption.View {
 
             Controls.Add(encryptionInputTextBox);
 
-            // Output label
+            // Label - output
             var encryptionOutputLabel = new Label(new Position(55, 17));
 
             encryptionOutputLabel.Name = "EncryptionOutputLabel";
@@ -40,7 +34,7 @@ namespace Encryption.View {
 
             Controls.Add(encryptionOutputLabel);
 
-            // Output textbox
+            // TextBox - output
             var encryptionOutputTextBox = new TextBox(new Position(42, 18), new Size(33, 15));
 
             encryptionOutputTextBox.Name = "EncryptionOutputTextBox";
@@ -48,7 +42,7 @@ namespace Encryption.View {
 
             Controls.Add(encryptionOutputTextBox);
 
-            // Encrypion button [from TextBox]
+            // Button - encryption from TextBox
             var encryptionButton1 = new Button(new Position(5, 34), new Size(33, 3));
 
             encryptionButton1.Name = "EncryptionButton1";
@@ -57,7 +51,7 @@ namespace Encryption.View {
             encryptionButton1.Coordinates.Add(new Position(0, 1));
             Controls.Add(encryptionButton1);
 
-            // Encrypion button [from File]
+            // Button - encryption from file
             var encryptionButton2 = new Button(new Position(42, 34), new Size(33, 3));
 
             encryptionButton2.Name = "EncryptionButton2";

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Encryption.Model {
+﻿namespace Encryption.Model {
 
     class Plugboard {
         public Plugboard() {
@@ -21,7 +15,7 @@ namespace Encryption.Model {
                     int index1 = _Output.IndexOf(pair[0]);
                     int index2 = _Output.IndexOf(pair[1]);
 
-                    var sb = new StringBuilder(_Output);
+                    var sb = new System.Text.StringBuilder(_Output);
                     char temp = sb[index1];
 
                     sb[index1] = sb[index2];
@@ -40,7 +34,7 @@ namespace Encryption.Model {
                     int index1 = _Output.IndexOf(pair[0]);
                     int index2 = _Output.IndexOf(pair[1]);
 
-                    var sb = new StringBuilder(_Output);
+                    var sb = new System.Text.StringBuilder(_Output);
                     char temp = sb[index1];
 
                     sb[index1] = sb[index2];
@@ -98,7 +92,7 @@ namespace Encryption.Model {
         }
 
 
-        // Encryption data (wires emulation)
+        // Wires simulation
         private string _Input;
         private string _Output;
     }
